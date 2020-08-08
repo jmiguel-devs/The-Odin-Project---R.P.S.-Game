@@ -8,10 +8,20 @@ const scissorsBtn = document.getElementById('Scissors');
 const userResult = document.getElementById('user-points');
 const computerResult = document.getElementById('computer-points');
 const modalElement = document.getElementById('exampleModalLong');
+const userSelectContent = document.getElementById('user-selection');
+const computerSelectContent = document.getElementById('computer-selection');
+
+function animationSelect(){
+    userSelectContent.parentElement.classList.add('animation-selection');
+    setTimeout(function(){ userSelectContent.parentElement.classList.remove('animation-selection'); }, 2000);
+}
 
 function computerPlay(){
     let randomOptionGame = Math.floor(Math.random() * optionsGameArray.length);
     let computerChoice = optionsGameArray[randomOptionGame];
+    computerSelectContent.textContent = computerChoice;
+    computerSelectContent.parentElement.classList.add('animation-selection');
+    setTimeout(function(){ computerSelectContent.parentElement.classList.remove('animation-selection'); }, 2000);
     return computerChoice;
 }
 
@@ -19,14 +29,20 @@ function btnHandler(){
     if(userPoints < 5 || computerPoints < 5){
         rockBtn.addEventListener("click", () => {
             game('Rock');
+            animationSelect();
+            userSelectContent.textContent = 'Rock';
         });
         
         paperBtn.addEventListener("click", () => {
             game('Paper');
+            animationSelect();
+            userSelectContent.textContent = 'Paper';
         });
         
         scissorsBtn.addEventListener("click", () => {
             game('Scissors');
+            animationSelect();
+            userSelectContent.textContent = 'Scissors';
         });
 
     } 

@@ -5,6 +5,11 @@ body{
     color: #fff;
 }
 
+::selection{
+    background-color: #3e3e3e;
+    color: #fff
+}
+
 *{
     font-family: 'Darker Grotesque';
 }
@@ -105,3 +110,66 @@ button.selection#Paper:active{
 button.selection#Scissors:active{
     background-color: rgb(195, 214, 255);
 }
+
+button.selection#Rock{
+    background-image: url(assets/circle.png);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+button.selection#Paper{
+    background-image: url(assets/square.png);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat
+}
+
+button.selection#Scissors{
+    background-image: url(assets/cross.png);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat
+}
+
+.user-selection-container{
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    background-color: red;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    opacity: 0;
+    color: #fff;
+}
+
+.computer-selection-container{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    background-color: red;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    opacity: 0;
+    color: #fff;
+}
+
+.animation-selection{
+    
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-in{
+    0% {opacity: 0; transform: translateY(0px); }
+    75% {opacity: 1; transform: translateY(-100px);}
+    95% {opacity: 0; transform: translateY(-100px)}
+    100% {opacity: 0; transform: translateY(0px)}
+}
+
